@@ -1,0 +1,19 @@
+  <!doctype html>
+  <html>
+  <head>
+      <link rel = "stylesheet" href="/static/style.css">
+  </head>
+  <body>
+      {% if error %}
+      <p style = 'color : red'>{{error}}<p>
+      {% endif %}
+      <div id="login">
+      <form name='form-login' action = "/login" method="post">
+          <span class="fontawesome-user"></span>
+          <input type="text" name="username" placeholder="아이디"></input><br>
+          <span class="fontawesome-lock"></span>
+          <input type="password" name="password" placeholder="비밀번호"></input><br>
+          <input type="submit" name="" value="로그인">
+      </form>
+  </body>
+  </html>

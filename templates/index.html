@@ -1,0 +1,78 @@
+  <!doctype html>
+  <html>
+  <head>
+    <style>
+      button {
+        color:#fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .button-one, .button-two {
+        text-align: center;
+        cursor: pointer;
+        font-size:24px;
+        margin: 0 0 0 100px;
+      }
+
+      .button-one, .button-two {
+        border-radius: 4px;
+        background-color:#2c3e50;
+        border: none;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+      }
+
+
+    .button-one span, .button-two span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button-one span:after, .button-two span:after {
+      content: '»';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button-one:hover span, .button-two:hover span {
+      padding-right: 25px;
+    }
+
+    .button-one:hover span:after, .button-two:hover span:after{
+      opacity: 1;
+      right: 0;
+    }
+
+    .button-one, .button-two {
+      text-align: center;
+      cursor: pointer;
+      font-size:24px;
+      margin: 0 0 0 100px;
+    }
+    </style>
+  </head>
+  <body>
+  {% extends 'layout.html' %}
+  {% block content %}
+      {% if user %}
+      <p style = "color:white;" > 로그인 유저 : {{ session['name']}} </p>
+      {% endif %}
+
+
+      {% if not 'name' in session %}
+      <button type="button" class = "button-one" onclick="location.href='/regist'"><span>register</span></button>
+      <button type="button" class = "button-two" onclick="location.href='/login'"><span>Login Page</span></button>
+      {% else %}
+      <button type="button" class = "button-one" onclick="location.href='/room'"><span>채팅하러가기</span></button>
+      <button type="button" class = "button-two" onclick="location.href='/logout'"><span>Logout</span></button>
+      {% endif %}
+  {% endblock %}
+  </body>
+  </html>
