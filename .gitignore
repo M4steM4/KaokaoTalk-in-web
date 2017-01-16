@@ -1,0 +1,4 @@
+# this is lgnored
+data.db
+_pycache_/
+venv/
